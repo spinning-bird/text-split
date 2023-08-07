@@ -1,0 +1,51 @@
+<div class="outer">
+  <div class="mainContent">
+    <div>
+      <h3>Enter your text here:</h3>
+    </div>
+
+    <div class="inputWrapper">
+      <mat-form-field>
+        <mat-label>Char limit per chunk</mat-label>
+        <input
+          matInput
+          placeholder="Ex. 500"
+          value="500"
+          [(ngModel)]="chunkLength"
+          type="number"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="textField">
+        <mat-label>Enter your text</mat-label>
+        <textarea
+          matInput
+          cdkTextareaAutosize
+          cdkAutosizeMinRows="4"
+          placeholder="bla bla bla ..."
+          (ngModelChange)="onTextChange($event)"
+          [(ngModel)]="inputText"
+        ></textarea>
+      </mat-form-field>
+      <div>Characters: {{ inputText.length }}</div>
+
+      <button mat-raised-button color="primary" (click)="onSplitText()">
+        Split up
+      </button>
+    </div>
+    <div style="margin-top: 5rem">
+      <div *ngFor="let chunk of chunks; let i; as: index">
+        <mat-card>{{ chunk }}</mat-card>
+        <button
+          style="margin-bottom: 2rem"
+          mat-raised-button
+          color="primary"
+          (click)="onCopy(chunk)"
+        >
+          Copy
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

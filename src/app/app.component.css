@@ -1,0 +1,36 @@
+body {
+  background-color: darkgray;
+}
+
+/* this class makes it so the div inside of it is centered on the top of the page  */
+.outer {
+  display: flex;
+  justify-content: center;
+  align-items: top;
+}
+
+.mainContent {
+  margin: 1rem;
+  padding: 1rem;
+  align-items: top;
+  width: 50rem;
+
+  /* there is a round border around this div */
+  border: 2px solid indigo;
+  border-radius: 2rem;
+}
+
+h3 {
+  display: block;
+}
+
+.textField {
+  float: left;
+  display: block;
+  width: 100%;
+}
+
+mat-card {
+  margin: 1rem;
+  padding: 1rem;
+}
